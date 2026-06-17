@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safety Command - UAPTS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+<nav class="top-nav">
+  <!-- Left Section: Navigation and Brand -->
+  <div class="top-nav-left">
+    <div class="top-nav-brand">
+      <div class="top-nav-logo"><img src="../assets/uapts-logo.png" alt="UAPTS"/></div>
+      <div class="top-nav-text">
+        <div class="top-nav-title">UAPTS</div>
+        <div class="top-nav-subtitle">Safety Command</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Section: Actions and Status -->
+  <div class="top-nav-actions">
+    <div class="lang-toggle"><button class="on">EN</button><button>SW</button></div>
+    
+    <!-- <button class="tenant-switcher" onclick="this.classList.toggle('open')">
+      <span class="ts-dot"></span><span>KeNHA</span><span class="ts-caret">▾</span>
+      <div class="tenant-menu">
+        <div class="tm-head">Switch Agency Tenant</div>
+        <a class="current">KeNHA <span class="tm-tag">National Roads</span></a>
+        <a>NTSA <span class="tm-tag">Safety & Licensing</span></a>
+        <a>KPA <span class="tm-tag">Ports Authority</span></a>
+        <a>KAA <span class="tm-tag">Airports</span></a>
+        <a>KCAA <span class="tm-tag">Aviation Safety</span></a>
+        <a>KRC <span class="tm-tag">Railway Ops</span></a>
+        <a>KURA <span class="tm-tag">Urban Roads</span></a>
+        <a>KeRRA <span class="tm-tag">Rural Roads</span></a>
+        <a>KRB <span class="tm-tag">Roads Board</span></a>
+        <a>NaMATA <span class="tm-tag">Mass Transit</span></a>
+        <a>LAPSSET <span class="tm-tag">Corridor</span></a>
+        <a>KMA <span class="tm-tag">Maritime Authority</span></a>
+        <a>KenTrade <span class="tm-tag">Single Window</span></a>
+        <a>NCTTCA <span class="tm-tag">Northern Corridor</span></a>
+        <a>KMD <span class="tm-tag">Meteorology</span></a>
+        <div class="tm-divider"></div>
+        <a>SDT <span class="tm-tag">Ministry Oversight</span></a>
+      </div>
+    </button> -->
+
+    <div class="sec-badge" title="MFA active · Session secure"><span class="sec-dot"></span>Secure</div>
+    <div class="live-indicator">Live Data</div>
+    <div class="nav-time" id="navClock">--:--:--</div>
+    <button class="bell-btn" aria-label="Notifications">Alerts <span class="badge">3</span></button>
+    <div class="avatar" title="Jane Mwangi">JM</div>
+  </div>
+</nav>
+<aside class="sidebar" id="sidebar">
+<div class="sidebar-section">
+<a class="sidebar-link sidebar-link-top" href="../index.html">Executive Dashboard</a>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Traffic & Mobility<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="m02-traffic-map.html">Real-Time Traffic Map</a>
+<a class="sidebar-link" href="m02-traffic-analytics.html">Traffic Analytics</a>
+<a class="sidebar-link" href="m03-fleet-tracking.html">Fleet Tracking</a>
+<a class="sidebar-link" href="m03-trip-history.html">Trip History</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Safety & Infrastructure<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="m05-safety-command.html">Safety Command</a>
+<a class="sidebar-link" href="m05-safety-analytics.html">Safety Analytics</a>
+<a class="sidebar-link" href="m06-infrastructure.html">Infrastructure</a>
+<a class="sidebar-link" href="m06-project-tracking.html">Project Tracking</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Intermodal<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="m07-intermodal.html">Intermodal Hub</a>
+<a class="sidebar-link" href="m07-mode-performance.html">Mode Performance</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Analytics & Reporting<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="analytics-workbench.html">Analytics Workbench</a>
+<a class="sidebar-link" href="query-builder.html">Query Builder</a>
+<a class="sidebar-link" href="report-center.html">Report Center</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Agency Drill-Downs<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="kenha.html">Road Assets</a>
+<a class="sidebar-link" href="ntsa.html">Safety & Enforcement</a>
+<a class="sidebar-link" href="sdr.html">Oversight & Finance</a>
+<a class="sidebar-link" href="ai-workbench.html">AI Predictive Workbench</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">System<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="user-management.html">User Management</a>
+<a class="sidebar-link" href="audit-trail.html">Audit Trail</a>
+<a class="sidebar-link" href="integration-hub.html">Integration Hub</a>
+<a class="sidebar-link" href="notifications.html">Notifications</a>
+<a class="sidebar-link" href="settings.html">Settings</a>
+</div></details>
+</div></aside>
+
+<main class="main-content">
+
+ <div class="container">
+ <!-- Page Header -->
+ <div class="page-header">
+ <div>
+ <h1 class="page-title">Incident Command Map</h1>
+ <p class="page-subtitle">Real-time monitoring of all active incidents and dangerous events, coordinate emergency response</p>
+ </div>
+ <div style="display: flex; gap: var(--spacing-sm);">
+ <button class="btn btn-secondary" onclick="openModal('incidentReport')">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+ <polyline points="14 2 14 8 20 8"/>
+ <line x1="12" y1="18" x2="12" y2="12"/>
+ <line x1="9" y1="15" x2="15" y2="15"/>
+ </svg>
+ Report Incident
+ </button>
+ <button class="btn btn-primary" onclick="openModal('emergencyDispatch')">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+ </svg>
+ Emergency Dispatch
+ </button>
+ </div>
+ </div>
+
+ <!-- Alert Panel -->
+ <div class="alert-panel danger" style="margin-bottom: var(--spacing-xl);">
+ <div class="alert-title">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+ <line x1="12" y1="9" x2="12" y2="13"/>
+ <line x1="12" y1="17" x2="12.01" y2="17"/>
+ </svg>
+ Emergency Events
+ </div>
+ <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-lg); margin-top: var(--spacing-md);">
+ <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+ <div style="width: 12px; height: 12px; background: var(--danger); border-radius: 50%;"></div>
+ <div>
+ <div style="font-size: 0.75rem; color: var(--text-muted);">Fatal/Serious</div>
+ <div style="font-size: 1.5rem; font-weight: 700;">3</div>
+ </div>
+ </div>
+ <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+ <div style="width: 12px; height: 12px; background: var(--warning); border-radius: 50%;"></div>
+ <div>
+ <div style="font-size: 0.75rem; color: var(--text-muted);">Moderate</div>
+ <div style="font-size: 1.5rem; font-weight: 700;">8</div>
+ </div>
+ </div>
+ <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+ <div style="width: 12px; height: 12px; background: var(--info); border-radius: 50%;"></div>
+ <div>
+ <div style="font-size: 0.75rem; color: var(--text-muted);">Minor</div>
+ <div style="font-size: 1.5rem; font-weight: 700;">12</div>
+ </div>
+ </div>
+ <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+ <div style="width: 12px; height: 12px; background: var(--accent-amber); border-radius: 50%;"></div>
+ <div>
+ <div style="font-size: 0.75rem; color: var(--text-muted);">Safety Hazards</div>
+ <div style="font-size: 1.5rem; font-weight: 700;">5</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- Filter Bar -->
+ <div class="filter-bar">
+ <div class="filter-group">
+ <span class="filter-label">Severity</span>
+ <select class="select" style="width: 120px;">
+ <option>All Levels</option>
+ <option>Fatal</option>
+ <option>Serious</option>
+ <option>Moderate</option>
+ <option>Minor</option>
+ </select>
+ </div>
+ <div class="filter-group">
+ <span class="filter-label">Event Type</span>
+ <select class="select" style="width: 140px;">
+ <option>All Types</option>
+ <option>Traffic Accident</option>
+ <option>Equipment Failure</option>
+ <option>Weather Impact</option>
+ <option>Road Obstruction</option>
+ <option>Safety Alert</option>
+ </select>
+ </div>
+ <div class="filter-group">
+ <span class="filter-label">Response Status</span>
+ <select class="select" style="width: 130px;">
+ <option>All Status</option>
+ <option>Pending</option>
+ <option>In Progress</option>
+ <option>Resolved</option>
+ </select>
+ </div>
+ <div class="filter-group">
+ <span class="filter-label">Area</span>
+ <select class="select" style="width: 130px;">
+ <option>All Areas</option>
+ <option>CBD</option>
+ <option>Westlands</option>
+ <option>Eastlands</option>
+ <option>Karen</option>
+ </select>
+ </div>
+ <div style="flex: 1;"></div>
+ <div style="display: flex; gap: var(--spacing-xs);">
+ <label class="toggle active"></label>
+ <span class="filter-label">Hazard Zones</span>
+ </div>
+ <div style="display: flex; gap: var(--spacing-xs);">
+ <label class="toggle active"></label>
+ <span class="filter-label">Emergency Resources</span>
+ </div>
+ </div>
+
+ <!-- Main Map Area -->
+ <div class="grid-2" style="margin-bottom: var(--spacing-xl);">
+ <!-- Map Area -->
+ <div class="map-container" style="height: 500px;">
+ <div class="map-grid"></div>
+
+ <!-- Simulated incident markers -->
+ <svg style="position: absolute; inset: 0; width: 100%; height: 100%;" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice">
+ <!-- Roads -->
+ <path d="M50,225 Q200,225 400,200 T750,225" stroke="rgba(59, 130, 246, 0.3)" stroke-width="20" fill="none"/>
+ <path d="M150,80 Q400,50 650,80 Q700,225 650,370 Q400,400 150,370 Q100,225 150,80" stroke="rgba(59, 130, 246, 0.3)" stroke-width="16" fill="none"/>
+
+ <!-- Hazard zones -->
+ <circle cx="500" cy="180" r="60" fill="rgba(239, 68, 68, 0.15)" stroke="rgba(239, 68, 68, 0.4)" stroke-width="2" stroke-dasharray="5,5"/>
+ <circle cx="300" cy="280" r="45" fill="rgba(245, 158, 11, 0.1)" stroke="rgba(245, 158, 11, 0.3)" stroke-width="2" stroke-dasharray="5,5"/>
+
+ <!-- Fatal incident marker -->
+ <g transform="translate(500, 180)">
+ <circle r="25" fill="rgba(239, 68, 68, 0.3)">
+ <animate attributeName="r" values="25;35;25" dur="2s" repeatCount="indefinite"/>
+ </circle>
+ <circle r="15" fill="#ef4444" stroke="white" stroke-width="2"/>
+ <text y="4" text-anchor="middle" fill="white" font-size="10" font-weight="bold">!</text>
+ <text y="35" text-anchor="middle" fill="white" font-size="7">Fatal</text>
+ </g>
+
+ <!-- Serious incident -->
+ <g transform="translate(280, 150)">
+ <circle r="18" fill="rgba(239, 68, 68, 0.2)">
+ <animate attributeName="r" values="18;24;18" dur="2s" repeatCount="indefinite"/>
+ </circle>
+ <circle r="10" fill="#ef4444" stroke="white" stroke-width="2"/>
+ <text y="4" text-anchor="middle" fill="white" font-size="8" font-weight="bold">!</text>
+ <text y="28" text-anchor="middle" fill="white" font-size="7">Serious</text>
+ </g>
+
+ <!-- Moderate incident -->
+ <g transform="translate(350, 300)">
+ <circle r="12" fill="rgba(245, 158, 11, 0.2)"/>
+ <circle r="8" fill="#f59e0b" stroke="white" stroke-width="2"/>
+ <text y="4" text-anchor="middle" fill="white" font-size="8" font-weight="bold">!</text>
+ <text y="22" text-anchor="middle" fill="white" font-size="7">Moderate</text>
+ </g>
+
+ <!-- Minor incidents -->
+ <g transform="translate(600, 250)">
+ <circle r="8" fill="rgba(59, 130, 246, 0.2)"/>
+ <circle r="6" fill="#3b82f6" stroke="white" stroke-width="2"/>
+ </g>
+
+ <g transform="translate(180, 220)">
+ <circle r="8" fill="rgba(59, 130, 246, 0.2)"/>
+ <circle r="6" fill="#3b82f6" stroke="white" stroke-width="2"/>
+ </g>
+
+ <!-- Emergency resources -->
+ <g transform="translate(150, 150)">
+ <circle r="10" fill="#10b981" stroke="white" stroke-width="2"/>
+ <text y="4" text-anchor="middle" fill="white" font-size="8">P</text>
+ <text y="25" text-anchor="middle" fill="white" font-size="6">Police</text>
+ </g>
+
+ <g transform="translate(620, 120)">
+ <circle r="10" fill="#ef4444" stroke="white" stroke-width="2"/>
+ <text y="4" text-anchor="middle" fill="white" font-size="8">A</text>
+ <text y="25" text-anchor="middle" fill="white" font-size="6">Ambulance</text>
+ </g>
+
+ <g transform="translate(400, 380)">
+ <circle r="10" fill="#f97316" stroke="white" stroke-width="2"/>
+ <text y="4" text-anchor="middle" fill="white" font-size="8">F</text>
+ <text y="25" text-anchor="middle" fill="white" font-size="6">Fire</text>
+ </g>
+ </svg>
+
+ <!-- Map Controls -->
+ <div class="map-controls">
+ <button class="map-control-btn">
+ <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <circle cx="11" cy="11" r="8"/>
+ <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+ <line x1="11" y1="8" x2="11" y2="14"/>
+ <line x1="8" y1="11" x2="14" y2="11"/>
+ </svg>
+ </button>
+ <button class="map-control-btn">
+ <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <circle cx="11" cy="11" r="8"/>
+ <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+ <line x1="8" y1="11" x2="14" y2="11"/>
+ </svg>
+ </button>
+ <button class="map-control-btn">
+ <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <circle cx="12" cy="12" r="10"/>
+ <circle cx="12" cy="12" r="3"/>
+ </svg>
+ </button>
+ </div>
+
+ <!-- Legend -->
+ <div class="map-legend">
+ <div class="legend-title">Incident Severity</div>
+ <div class="legend-items">
+ <div class="legend-item">
+ <div style="width: 12px; height: 12px; background: #ef4444; border-radius: 50%;"></div>
+ <span>Fatal/Serious</span>
+ </div>
+ <div class="legend-item">
+ <div style="width: 12px; height: 12px; background: #f59e0b; border-radius: 50%;"></div>
+ <span>Moderate</span>
+ </div>
+ <div class="legend-item">
+ <div style="width: 12px; height: 12px; background: #3b82f6; border-radius: 50%;"></div>
+ <span>Minor</span>
+ </div>
+ </div>
+ <div class="legend-title" style="margin-top: var(--spacing-md);">Emergency Resources</div>
+ <div class="legend-items">
+ <div class="legend-item">
+ <div style="width: 12px; height: 12px; background: #10b981; border-radius: 50%;"></div>
+ <span>Police</span>
+ </div>
+ <div class="legend-item">
+ <div style="width: 12px; height: 12px; background: #ef4444; border-radius: 50%;"></div>
+ <span>Ambulance</span>
+ </div>
+ <div class="legend-item">
+ <div style="width: 12px; height: 12px; background: #f97316; border-radius: 50%;"></div>
+ <span>Fire Brigade</span>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- Incident List -->
+ <div class="card">
+ <div class="card-header">
+ <div>
+ <div class="card-title">Active Incidents</div>
+ <div class="card-subtitle">28 incidents currently</div>
+ </div>
+ <div style="display: flex; gap: var(--spacing-xs);">
+ <button class="btn btn-sm btn-ghost active">List</button>
+ <button class="btn btn-sm btn-ghost">Cards</button>
+ </div>
+ </div>
+ <div class="card-body" style="padding: 0; max-height: 440px; overflow-y: auto;">
+ <!-- Fatal/Serious incidents -->
+ <div style="padding: var(--spacing-md); background: rgba(239, 68, 68, 0.1); border-left: 3px solid var(--danger);">
+ <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+ <span class="badge badge-red">Fatal</span>
+ <span style="font-size: 0.625rem; color: var(--text-muted); font-family: var(--font-mono);">01:15</span>
+ </div>
+ <div style="font-size: 0.875rem; font-weight: 600; margin-bottom: 4px;">Mombasa Road A109 +25km</div>
+ <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);">Multi-vehicle collision - casualties reported</div>
+ <div style="display: flex; gap: var(--spacing-sm);">
+ <button class="btn btn-sm btn-primary" style="flex: 1;">Dispatch Resources</button>
+ <button class="btn btn-sm btn-secondary">Details</button>
+ </div>
+ </div>
+
+ <div style="padding: var(--spacing-md); background: rgba(239, 68, 68, 0.05); border-left: 3px solid var(--danger);">
+ <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+ <span class="badge badge-red">Serious</span>
+ <span style="font-size: 0.625rem; color: var(--text-muted); font-family: var(--font-mono);">00:58</span>
+ </div>
+ <div style="font-size: 0.875rem; font-weight: 600; margin-bottom: 4px;">Waiyaki Way - University Section</div>
+ <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);">Vehicle rollover, occupying two lanes</div>
+ <div style="display: flex; gap: var(--spacing-sm);">
+ <button class="btn btn-sm btn-primary" style="flex: 1;">Dispatch Resources</button>
+ <button class="btn btn-sm btn-secondary">Details</button>
+ </div>
+ </div>
+
+ <!-- Moderate incidents -->
+ <div style="padding: var(--spacing-md); border-left: 3px solid var(--warning);">
+ <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+ <span class="badge badge-amber">Moderate</span>
+ <span style="font-size: 0.625rem; color: var(--text-muted); font-family: var(--font-mono);">00:45</span>
+ </div>
+ <div style="font-size: 0.875rem; font-weight: 600; margin-bottom: 4px;">Ngong Road (Kenyatta Hospital Junction)</div>
+ <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);">Matatu vs bodaboda collision, no injuries</div>
+ <div style="display: flex; gap: var(--spacing-sm);">
+ <button class="btn btn-sm btn-secondary" style="flex: 1;">In Progress</button>
+ <button class="btn btn-sm btn-ghost">Details</button>
+ </div>
+ </div>
+
+ <div style="padding: var(--spacing-md); border-left: 3px solid var(--warning);">
+ <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+ <span class="badge badge-amber">Moderate</span>
+ <span style="font-size: 0.625rem; color: var(--text-muted); font-family: var(--font-mono);">00:28</span>
+ </div>
+ <div style="font-size: 0.875rem; font-weight: 600; margin-bottom: 4px;">Kenyatta Avenue (CBD Area)</div>
+ <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);">Traffic accident causing road congestion</div>
+ <div style="display: flex; gap: var(--spacing-sm);">
+ <button class="btn btn-sm btn-secondary" style="flex: 1;">In Progress</button>
+ <button class="btn btn-sm btn-ghost">Details</button>
+ </div>
+ </div>
+
+ <!-- Minor incidents -->
+ <div style="padding: var(--spacing-md); border-left: 3px solid var(--info);">
+ <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+ <span class="badge badge-blue">Minor</span>
+ <span style="font-size: 0.625rem; color: var(--text-muted); font-family: var(--font-mono);">00:11</span>
+ </div>
+ <div style="font-size: 0.875rem; font-weight: 600; margin-bottom: 4px;">Outer Ring Road km 15</div>
+ <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);">Cargo spilled, cleaned up</div>
+ <span class="badge badge-emerald">Pending Closure</span>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- Emergency Resource Status -->
+ <div class="card">
+ <div class="card-header">
+ <div>
+ <div class="card-title">Emergency Resource Status</div>
+ <div class="card-subtitle">Real-time overview of dispatchable emergency resources</div>
+ </div>
+ </div>
+ <div class="card-body">
+ <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-lg);">
+ <div style="background: var(--secondary-bg); padding: var(--spacing-lg); border-radius: var(--radius-lg);">
+ <div style="display: flex; align-items: center; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+ <div style="width: 40px; height: 40px; background: rgba(16, 185, 129, 0.2); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
+ <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+ <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+ </svg>
+ </div>
+ <div>
+ <div style="font-size: 0.75rem; color: var(--text-muted);">Police</div>
+ <div style="font-size: 1.25rem; font-weight: 600;">45/52</div>
+ </div>
+ </div>
+ <div class="progress" style="height: 6px;">
+ <div class="progress-bar success" style="width: 87%;"></div>
+ </div>
+ <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: var(--spacing-xs);">Available: 38 units</div>
+ </div>
+
+ <div style="background: var(--secondary-bg); padding: var(--spacing-lg); border-radius: var(--radius-lg);">
+ <div style="display: flex; align-items: center; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+ <div style="width: 40px; height: 40px; background: rgba(239, 68, 68, 0.2); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
+ <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2">
+ <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+ </svg>
+ </div>
+ <div>
+ <div style="font-size: 0.75rem; color: var(--text-muted);">Ambulances</div>
+ <div style="font-size: 1.25rem; font-weight: 600;">28/35</div>
+ </div>
+ </div>
+ <div class="progress" style="height: 6px;">
+ <div class="progress-bar" style="width: 80%;"></div>
+ </div>
+ <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: var(--spacing-xs);">Available: 22 units</div>
+ </div>
+
+ <div style="background: var(--secondary-bg); padding: var(--spacing-lg); border-radius: var(--radius-lg);">
+ <div style="display: flex; align-items: center; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+ <div style="width: 40px; height: 40px; background: rgba(249, 115, 22, 0.2); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
+ <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2">
+ <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+ </svg>
+ </div>
+ <div>
+ <div style="font-size: 0.75rem; color: var(--text-muted);">Fire Brigade</div>
+ <div style="font-size: 1.25rem; font-weight: 600;">18/22</div>
+ </div>
+ </div>
+ <div class="progress" style="height: 6px;">
+ <div class="progress-bar warning" style="width: 82%;"></div>
+ </div>
+ <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: var(--spacing-xs);">Available: 15 units</div>
+ </div>
+
+ <div style="background: var(--secondary-bg); padding: var(--spacing-lg); border-radius: var(--radius-lg);">
+ <div style="display: flex; align-items: center; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+ <div style="width: 40px; height: 40px; background: rgba(245, 158, 11, 0.2); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
+ <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+ <rect x="1" y="3" width="15" height="13"/>
+ <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+ <circle cx="5.5" cy="18.5" r="2.5"/>
+ <circle cx="18.5" cy="18.5" r="2.5"/>
+ </svg>
+ </div>
+ <div>
+ <div style="font-size: 0.75rem; color: var(--text-muted);">Tow Trucks</div>
+ <div style="font-size: 1.25rem; font-weight: 600;">12/18</div>
+ </div>
+ </div>
+ <div class="progress" style="height: 6px;">
+ <div class="progress-bar" style="width: 67%;"></div>
+ </div>
+ <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: var(--spacing-xs);">Available: 8 units</div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+</main>
+<script>
+(function(){function t(){var d=new Date();var s=d.toISOString().slice(0,10)+" "+d.toTimeString().slice(0,8);var el=document.getElementById("navClock");if(el)el.textContent=s;}t();setInterval(t,1000);})();
+</script>
+
+</body>
+</html>

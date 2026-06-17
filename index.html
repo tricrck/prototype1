@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UAPTS - Executive Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+
+<body>
+  <nav class="top-nav">
+    <!-- Left Section: Navigation and Brand -->
+    <div class="top-nav-left">
+      <div class="top-nav-brand">
+        <div class="top-nav-logo"><img src="./assets/uapts-logo.png" alt="UAPTS" /></div>
+        <div class="top-nav-text">
+          <div class="top-nav-title">UAPTS</div>
+          <div class="top-nav-subtitle">Executive Command Center</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Section: Actions and Status -->
+    <div class="top-nav-actions">
+      <div class="lang-toggle"><button class="on">EN</button><button>SW</button></div>
+
+      <!-- <button class="tenant-switcher" onclick="this.classList.toggle('open')">
+      <span class="ts-dot"></span><span>KeNHA</span><span class="ts-caret">▾</span>
+      <div class="tenant-menu">
+        <div class="tm-head">Switch Agency Tenant</div>
+        <a class="current">KeNHA <span class="tm-tag">National Roads</span></a>
+        <a>NTSA <span class="tm-tag">Safety & Licensing</span></a>
+        <a>KPA <span class="tm-tag">Ports Authority</span></a>
+        <a>KAA <span class="tm-tag">Airports</span></a>
+        <a>KCAA <span class="tm-tag">Aviation Safety</span></a>
+        <a>KRC <span class="tm-tag">Railway Ops</span></a>
+        <a>KURA <span class="tm-tag">Urban Roads</span></a>
+        <a>KeRRA <span class="tm-tag">Rural Roads</span></a>
+        <a>KRB <span class="tm-tag">Roads Board</span></a>
+        <a>NaMATA <span class="tm-tag">Mass Transit</span></a>
+        <a>LAPSSET <span class="tm-tag">Corridor</span></a>
+        <a>KMA <span class="tm-tag">Maritime Authority</span></a>
+        <a>KenTrade <span class="tm-tag">Single Window</span></a>
+        <a>NCTTCA <span class="tm-tag">Northern Corridor</span></a>
+        <a>KMD <span class="tm-tag">Meteorology</span></a>
+        <div class="tm-divider"></div>
+        <a>SDT <span class="tm-tag">Ministry Oversight</span></a>
+      </div>
+    </button> -->
+
+      <div class="sec-badge" title="MFA active · Session secure"><span class="sec-dot"></span>Secure</div>
+      <div class="live-indicator">Live Data</div>
+      <div class="nav-time" id="navClock">--:--:--</div>
+      <button class="bell-btn" aria-label="Notifications">Alerts <span class="badge">3</span></button>
+      <div class="avatar" title="Jane Mwangi">JM</div>
+    </div>
+  </nav>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-section">
+      <a class="sidebar-link sidebar-link-top" href="index.html">Executive Dashboard</a>
+      <details class="sidebar-group" open>
+        <summary class="sidebar-group-title">Traffic & Mobility<span class="sidebar-caret">▾</span></summary>
+        <div class="sidebar-group-items">
+          <a class="sidebar-link" href="pages/m02-traffic-map.html">Real-Time Traffic Map</a>
+          <a class="sidebar-link" href="pages/m02-traffic-analytics.html">Traffic Analytics</a>
+          <a class="sidebar-link" href="pages/m03-fleet-tracking.html">Fleet Tracking</a>
+          <a class="sidebar-link" href="pages/m03-trip-history.html">Trip History</a>
+        </div>
+      </details>
+      <details class="sidebar-group" open>
+        <summary class="sidebar-group-title">Safety & Infrastructure<span class="sidebar-caret">▾</span></summary>
+        <div class="sidebar-group-items">
+          <a class="sidebar-link" href="pages/m05-safety-command.html">Safety Command</a>
+          <a class="sidebar-link" href="pages/m05-safety-analytics.html">Safety Analytics</a>
+          <a class="sidebar-link" href="pages/m06-infrastructure.html">Infrastructure</a>
+          <a class="sidebar-link" href="pages/m06-project-tracking.html">Project Tracking</a>
+        </div>
+      </details>
+      <details class="sidebar-group" open>
+        <summary class="sidebar-group-title">Intermodal<span class="sidebar-caret">▾</span></summary>
+        <div class="sidebar-group-items">
+          <a class="sidebar-link" href="pages/m07-intermodal.html">Intermodal Hub</a>
+          <a class="sidebar-link" href="pages/m07-mode-performance.html">Mode Performance</a>
+        </div>
+      </details>
+      <details class="sidebar-group" open>
+        <summary class="sidebar-group-title">Analytics & Reporting<span class="sidebar-caret">▾</span></summary>
+        <div class="sidebar-group-items">
+          <a class="sidebar-link" href="pages/analytics-workbench.html">Analytics Workbench</a>
+          <a class="sidebar-link" href="pages/query-builder.html">Query Builder</a>
+          <a class="sidebar-link" href="pages/report-center.html">Report Center</a>
+        </div>
+      </details>
+      <details class="sidebar-group" open>
+        <summary class="sidebar-group-title">Agency Drill-Downs<span class="sidebar-caret">▾</span></summary>
+        <div class="sidebar-group-items">
+          <a class="sidebar-link" href="pages/kenha.html">Road Assets</a>
+          <a class="sidebar-link" href="pages/ntsa.html">Safety & Enforcement</a>
+          <a class="sidebar-link" href="pages/sdr.html">Oversight & Finance</a>
+          <a class="sidebar-link" href="pages/ai-workbench.html">AI Predictive Workbench</a>
+        </div>
+      </details>
+      <details class="sidebar-group" open>
+        <summary class="sidebar-group-title">System<span class="sidebar-caret">▾</span></summary>
+        <div class="sidebar-group-items">
+          <a class="sidebar-link" href="pages/user-management.html">User Management</a>
+          <a class="sidebar-link" href="pages/audit-trail.html">Audit Trail</a>
+          <a class="sidebar-link" href="pages/integration-hub.html">Integration Hub</a>
+          <a class="sidebar-link" href="pages/notifications.html">Notifications</a>
+          <a class="sidebar-link" href="pages/settings.html">Settings</a>
+        </div>
+      </details>
+    </div>
+  </aside>
+
+  <main class="main-content">
+
+    <div>
+        <div class="page-tag">M01 Executive Command Centre</div>
+
+        <div class="page-header">
+            <div>
+                <h1>National Transport Executive Dashboard</h1>
+                <div class="page-subtitle">
+                    Unified oversight across all transport agencies and modes
+                </div>
+            </div>
+
+            <div class="header-btns">
+                <button>Export Briefing</button>
+                <button>Schedule Cabinet Report</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="persona-ribbon">
+        <strong>Executive View</strong>
+        Read-only national oversight dashboard
+        <span class="pr-chip">
+            Last Refresh: 2026-06-16T12:48:11Z
+        </span>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- SYSTEM STATUS BAR -->
+    <!-- ===================================================== -->
+
+    <div class="status-bar">
+
+        <div class="stat">
+            <span class="dot"></span>
+            NTSA
+        </div>
+
+        <div class="stat">
+            <span class="dot"></span>
+            KeNHA
+        </div>
+
+        <div class="stat">
+            <span class="dot"></span>
+            KPA
+        </div>
+
+        <div class="stat">
+            <span class="dot"></span>
+            KRC
+        </div>
+
+        <div class="stat">
+            <span class="dot"></span>
+            KAA
+        </div>
+
+        <div class="stat">
+            <span class="dot"></span>
+            KMD
+        </div>
+
+        <div class="stat">
+            <span class="dot" style="background:var(--destructive)"></span>
+            KeRRA Offline
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- NATIONAL HEALTH -->
+    <!-- ===================================================== -->
+
+    <div class="section-title">
+        National Transport Health
+    </div>
+
+    <div class="kpi-grid">
+
+        <div class="kpi-card">
+            <span class="badge warning">WATCH</span>
+
+            <div class="kpi-label">
+                Road Network Status
+            </div>
+
+            <div class="kpi-value">
+                87%
+            </div>
+
+            <div class="kpi-sub">
+                Corridor Capacity Utilisation
+            </div>
+
+            <div class="kpi-trend down">
+                ▼ Worsening over 7 days
+            </div>
+        </div>
+
+        <div class="kpi-card">
+            <span class="badge danger">CRITICAL</span>
+
+            <div class="kpi-label">
+                Road Safety
+            </div>
+
+            <div class="kpi-value">
+                12
+            </div>
+
+            <div class="kpi-sub">
+                Serious incidents requiring response
+            </div>
+
+            <div class="kpi-trend down">
+                ▲ Above 30-day average
+            </div>
+        </div>
+
+        <div class="kpi-card">
+            <span class="badge success">GOOD</span>
+
+            <div class="kpi-label">
+                Public Transport
+            </div>
+
+            <div class="kpi-value">
+                94%
+            </div>
+
+            <div class="kpi-sub">
+                On-time service performance
+            </div>
+
+            <div class="kpi-trend up">
+                Improving
+            </div>
+        </div>
+
+        <div class="kpi-card">
+            <span class="badge success">GOOD</span>
+
+            <div class="kpi-label">
+                Ports & Logistics
+            </div>
+
+            <div class="kpi-value">
+                108%
+            </div>
+
+            <div class="kpi-sub">
+                Throughput versus target
+            </div>
+
+            <div class="kpi-trend up">
+                8.1% above target
+            </div>
+        </div>
+
+        <div class="kpi-card">
+            <span class="badge warning">WATCH</span>
+
+            <div class="kpi-label">
+                Rail Network
+            </div>
+
+            <div class="kpi-value">
+                78%
+            </div>
+
+            <div class="kpi-sub">
+                On-time performance
+            </div>
+
+            <div class="kpi-trend down">
+                Ridership declining
+            </div>
+        </div>
+
+        <div class="kpi-card">
+            <span class="badge success">GOOD</span>
+
+            <div class="kpi-label">
+                Aviation
+            </div>
+
+            <div class="kpi-value">
+                91%
+            </div>
+
+            <div class="kpi-sub">
+                National flight performance
+            </div>
+
+            <div class="kpi-trend up">
+                Stable
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- GIS + ESCALATIONS -->
+    <!-- ===================================================== -->
+
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:16px;">
+
+        <div class="map-wrap">
+
+            <div class="card-header">
+                National Incident Heatmap
+            </div>
+
+            <div class="map-canvas">
+                <div class="gis-placeholder">
+
+                <div class="gis-header">
+                    <div>
+                        <h3>National Transport Intelligence Map</h3>
+                        <span>Unified GIS Monitoring • Module M13</span>
+                    </div>
+
+                    <div class="gis-live">
+                        ● Live
+                    </div>
+                </div>
+
+                <div class="gis-body">
+
+                    <div class="county-hotspot hotspot-red">
+                        Nairobi
+                    </div>
+
+                    <div class="county-hotspot hotspot-amber">
+                        Nakuru
+                    </div>
+
+                    <div class="county-hotspot hotspot-green">
+                        Mombasa
+                    </div>
+
+                    <div class="county-hotspot hotspot-green">
+                        Kisumu
+                    </div>
+
+                    <div class="county-hotspot hotspot-amber">
+                        Eldoret
+                    </div>
+
+                    <div class="gis-center-label">
+                        Kenya Transport Network
+                    </div>
+
+                </div>
+
+                <div class="gis-footer">
+
+                    <div class="legend-item">
+                        <span class="legend-dot green"></span>
+                        Normal Operations
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot amber"></span>
+                        Watch
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot red"></span>
+                        Critical
+                    </div>
+
+                </div>
+
+            </div>
+            </div>
+
+        </div>
+
+        <div class="alert-section">
+
+            <h3>
+                Executive Escalations
+            </h3>
+
+            <div class="alert-item">
+
+                <div class="alert-main">
+
+                    <span class="alert-badge critical">
+                        Critical
+                    </span>
+
+                    <div>
+
+                        <div class="alert-title">
+                            Fatal incidents exceed national threshold
+                        </div>
+
+                        <div class="alert-meta">
+                            NTSA • 30-day average exceeded
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="alert-item">
+
+                <div class="alert-main">
+
+                    <span class="alert-badge critical">
+                        Critical
+                    </span>
+
+                    <div>
+
+                        <div class="alert-title">
+                            KeRRA integration unavailable
+                        </div>
+
+                        <div class="alert-meta">
+                            SLA breach • Offline 4h
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="alert-item">
+
+                <div class="alert-main">
+
+                    <span class="alert-badge warning">
+                        Warning
+                    </span>
+
+                    <div>
+
+                        <div class="alert-title">
+                            Corridor transit times above benchmark
+                        </div>
+
+                        <div class="alert-meta">
+                            COMESA target not met
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- ACCOUNTABILITY -->
+    <!-- ===================================================== -->
+
+    <div class="section-title">
+        Agency Accountability Dashboard
+    </div>
+
+    <div class="card">
+
+        <div class="card-body">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Agency</th>
+                        <th>Status</th>
+                        <th>Primary KPI</th>
+                        <th>Feed Health</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>NTSA</td>
+                        <td><span class="badge success">Healthy</span></td>
+                        <td>14,832 vehicles tracked</td>
+                        <td>Online</td>
+                    </tr>
+
+                    <tr>
+                        <td>KeNHA</td>
+                        <td><span class="badge warning">Watch</span></td>
+                        <td>Road Condition 72/100</td>
+                        <td>Online</td>
+                    </tr>
+
+                    <tr>
+                        <td>KPA</td>
+                        <td><span class="badge success">Healthy</span></td>
+                        <td>108% throughput target</td>
+                        <td>Online</td>
+                    </tr>
+
+                    <tr>
+                        <td>KAA</td>
+                        <td><span class="badge warning">Latency</span></td>
+                        <td>Flight operations</td>
+                        <td>2.3 sec latency</td>
+                    </tr>
+
+                    <tr>
+                        <td>KeRRA</td>
+                        <td><span class="badge danger">Offline</span></td>
+                        <td>No reporting</td>
+                        <td>SLA breach</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- EXECUTIVE INSIGHTS -->
+    <!-- ===================================================== -->
+
+    <div class="agency-grid">
+
+        <div class="agency-card">
+
+            <div class="ac-head">
+                <h4>Agency Performance Ranking</h4>
+            </div>
+
+            <div class="maint-row">
+                <span>NTSA</span>
+                <strong>94%</strong>
+            </div>
+
+            <div class="maint-row">
+                <span>KPA</span>
+                <strong>92%</strong>
+            </div>
+
+            <div class="maint-row">
+                <span>KRC</span>
+                <strong>88%</strong>
+            </div>
+
+            <div class="maint-row">
+                <span>KAA</span>
+                <strong>84%</strong>
+            </div>
+
+            <div class="maint-row">
+                <span>KeNHA</span>
+                <strong>78%</strong>
+            </div>
+
+        </div>
+
+        <div class="agency-card">
+
+            <div class="ac-head">
+                <h4>KRB Funding Performance</h4>
+            </div>
+
+            <div class="iri-row">
+                <span>Budget Utilisation</span>
+                <span class="iri-pill iri-good">
+                    68%
+                </span>
+            </div>
+
+            <div class="iri-row">
+                <span>Road Condition Improvement</span>
+                <span class="iri-pill iri-good">
+                    +4.3%
+                </span>
+            </div>
+
+            <div class="iri-row">
+                <span>Projects Delivered</span>
+                <span class="iri-pill iri-fair">
+                    81%
+                </span>
+            </div>
+
+        </div>
+
+        <div class="agency-card">
+
+            <div class="ac-head">
+                <h4>AI Executive Briefing</h4>
+            </div>
+
+            <div class="viol-row">
+                Road fatalities trending 12% above average.
+            </div>
+
+            <div class="viol-row">
+                Congestion predicted on Northern Corridor.
+            </div>
+
+            <div class="viol-row">
+                Port throughput exceeds target for 7 days.
+            </div>
+
+            <div class="viol-row">
+                KeRRA outage may impact reporting.
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Agency Drill-Down Previews -->
+    <div class="section-title">Agency Drill-Downs <span class="st-pill">RBAC scoped</span></div>
+    <div class="agency-grid">
+      <div class="agency-card">
+        <div class="ac-head">
+          <h4>KeNHA - Road Asset Manager</h4><span class="ac-tag">Live + Batch</span>
+        </div>
+        <div class="iri-row"><span>A104 Nairobi–Mombasa (km 0–80)</span><span class="iri-pill iri-very-good">Very Good ·
+            IRI 1.8</span></div>
+        <div class="iri-row"><span>B8 Garissa–Liboi</span><span class="iri-pill iri-poor">Poor · IRI 7.4</span></div>
+        <div class="iri-row"><span>C61 Maralal–Baragoi</span><span class="iri-pill iri-vpoor">Very Poor · IRI 9.1</span>
+        </div>
+        <div style="margin-top:10px"><a href="pages/kenha.html" class="btn btn-primary" style="font-size:11px">Open
+            KeNHA workspace →</a></div>
+      </div>
+      <div class="agency-card">
+        <div class="ac-head">
+          <h4>NTSA - Safety & Enforcement</h4><span class="ac-tag">Live IVMS</span>
+        </div>
+        <div class="viol-row"><span>Pedestrian fatalities (7d)</span><span class="vr-val">48</span></div>
+        <div class="viol-row"><span>Motorcyclist fatalities (7d)</span><span class="vr-val">31</span></div>
+        <div class="viol-row"><span>Expired PSV licences flagged</span><span class="vr-val">214</span></div>
+        <div style="margin-top:10px"><a href="pages/ntsa.html" class="btn btn-primary" style="font-size:11px">Open NTSA
+            workspace →</a></div>
+      </div>
+      <div class="agency-card">
+        <div class="ac-head">
+          <h4>SDR - Oversight & Finance</h4><span class="ac-tag">Manual/Batch</span>
+        </div>
+        <div class="iri-row"><span>Budget absorption FY25 · all agencies</span><span
+            class="iri-pill iri-good">68%</span></div>
+        <div class="iri-row"><span>Maintenance backlog</span><span class="iri-pill iri-poor">KES 142B</span></div>
+        <div class="iri-row"><span>Road register Δ (30d)</span><span class="iri-pill iri-good">+318 km</span></div>
+        <div style="margin-top:10px"><a href="pages/sdr.html" class="btn btn-primary" style="font-size:11px">Open SDR
+            workspace →</a></div>
+      </div>
+    </div>
+
+
+</main>
+  <script>
+    (function () { function t() { var d = new Date(); var s = d.toISOString().slice(0, 10) + " " + d.toTimeString().slice(0, 8); var el = document.getElementById("navClock"); if (el) el.textContent = s; } t(); setInterval(t, 1000); })();
+  </script>
+  <script>
+let map;
+
+function initMap() {
+    const center = { lat: -1.2804276963756978, lng: 36.82519199142026 };
+
+    map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 14,
+        center: center,
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: false
+    });
+
+    // Traffic layer
+    const trafficLayer = new google.maps.TrafficLayer();
+    trafficLayer.setMap(map);
+}
+
+// Simple UI controls
+function mapZoomIn() {
+    map.setZoom(map.getZoom() + 1);
+}
+
+function mapZoomOut() {
+    map.setZoom(map.getZoom() - 1);
+}
+
+function locateUser() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pos => {
+            const p = {
+                lat: pos.coords.latitude,
+                lng: pos.coords.longitude
+            };
+            map.setCenter(p);
+        });
+    }
+}
+
+function toggleFullscreen() {
+    const el = document.querySelector(".map-container");
+    if (!document.fullscreenElement) {
+        el.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+}
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLp2NoYbv89tJMsikQ1sTl13hfBGv9nZc&callback=initMap">
+</script>
+
+</body>
+
+</html>

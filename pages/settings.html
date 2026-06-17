@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings - UAPTS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+<nav class="top-nav">
+  <!-- Left Section: Navigation and Brand -->
+  <div class="top-nav-left">
+    <div class="top-nav-brand">
+      <div class="top-nav-logo"><img src="../assets/uapts-logo.png" alt="UAPTS"/></div>
+      <div class="top-nav-text">
+        <div class="top-nav-title">UAPTS</div>
+        <div class="top-nav-subtitle">System Administration</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Section: Actions and Status -->
+  <div class="top-nav-actions">
+    <div class="lang-toggle"><button class="on">EN</button><button>SW</button></div>
+    
+    <!-- <button class="tenant-switcher" onclick="this.classList.toggle('open')">
+      <span class="ts-dot"></span><span>KeNHA</span><span class="ts-caret">▾</span>
+      <div class="tenant-menu">
+        <div class="tm-head">Switch Agency Tenant</div>
+        <a class="current">KeNHA <span class="tm-tag">National Roads</span></a>
+        <a>NTSA <span class="tm-tag">Safety & Licensing</span></a>
+        <a>KPA <span class="tm-tag">Ports Authority</span></a>
+        <a>KAA <span class="tm-tag">Airports</span></a>
+        <a>KCAA <span class="tm-tag">Aviation Safety</span></a>
+        <a>KRC <span class="tm-tag">Railway Ops</span></a>
+        <a>KURA <span class="tm-tag">Urban Roads</span></a>
+        <a>KeRRA <span class="tm-tag">Rural Roads</span></a>
+        <a>KRB <span class="tm-tag">Roads Board</span></a>
+        <a>NaMATA <span class="tm-tag">Mass Transit</span></a>
+        <a>LAPSSET <span class="tm-tag">Corridor</span></a>
+        <a>KMA <span class="tm-tag">Maritime Authority</span></a>
+        <a>KenTrade <span class="tm-tag">Single Window</span></a>
+        <a>NCTTCA <span class="tm-tag">Northern Corridor</span></a>
+        <a>KMD <span class="tm-tag">Meteorology</span></a>
+        <div class="tm-divider"></div>
+        <a>SDT <span class="tm-tag">Ministry Oversight</span></a>
+      </div>
+    </button> -->
+
+    <div class="sec-badge" title="MFA active · Session secure"><span class="sec-dot"></span>Secure</div>
+    <div class="live-indicator">Live Data</div>
+    <div class="nav-time" id="navClock">--:--:--</div>
+    <button class="bell-btn" aria-label="Notifications">Alerts <span class="badge">3</span></button>
+    <div class="avatar" title="Jane Mwangi">JM</div>
+  </div>
+</nav>
+<aside class="sidebar" id="sidebar">
+<div class="sidebar-section">
+<a class="sidebar-link sidebar-link-top" href="../index.html">Executive Dashboard</a>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Traffic & Mobility<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="m02-traffic-map.html">Real-Time Traffic Map</a>
+<a class="sidebar-link" href="m02-traffic-analytics.html">Traffic Analytics</a>
+<a class="sidebar-link" href="m03-fleet-tracking.html">Fleet Tracking</a>
+<a class="sidebar-link" href="m03-trip-history.html">Trip History</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Safety & Infrastructure<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="m05-safety-command.html">Safety Command</a>
+<a class="sidebar-link" href="m05-safety-analytics.html">Safety Analytics</a>
+<a class="sidebar-link" href="m06-infrastructure.html">Infrastructure</a>
+<a class="sidebar-link" href="m06-project-tracking.html">Project Tracking</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Intermodal<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="m07-intermodal.html">Intermodal Hub</a>
+<a class="sidebar-link" href="m07-mode-performance.html">Mode Performance</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Analytics & Reporting<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="analytics-workbench.html">Analytics Workbench</a>
+<a class="sidebar-link" href="query-builder.html">Query Builder</a>
+<a class="sidebar-link" href="report-center.html">Report Center</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Agency Drill-Downs<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="kenha.html">Road Assets</a>
+<a class="sidebar-link" href="ntsa.html">Safety & Enforcement</a>
+<a class="sidebar-link" href="sdr.html">Oversight & Finance</a>
+<a class="sidebar-link" href="ai-workbench.html">AI Predictive Workbench</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">System<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="user-management.html">User Management</a>
+<a class="sidebar-link" href="audit-trail.html">Audit Trail</a>
+<a class="sidebar-link" href="integration-hub.html">Integration Hub</a>
+<a class="sidebar-link" href="notifications.html">Notifications</a>
+<a class="sidebar-link" href="settings.html">Settings</a>
+</div></details>
+</div></aside>
+
+<main class="main-content">
+
+ <div>
+ <div class="page-tag">Settings</div>
+ <div class="page-header"><h1> Settings</h1></div>
+ </div>
+ <div class="status-bar">
+ <div class="stat"><div class="dot" style="background:var(--success)"></div>Module Online</div>
+ <div class="stat">Last updated: <span id="clock2"></span></div>
+ </div>
+ <div class="placeholder-grid">
+ <div class="placeholder-box"><div class="icon"></div><h3>General Configuration</h3><p>Timezone, language, display preferences</p></div>
+<div class="placeholder-box"><div class="icon"></div><h3>System Health</h3><p>Server status, DB connections, background jobs</p></div>
+<div class="placeholder-box"><div class="icon"></div><h3>Backup & Recovery</h3><p>Backup schedules, retention, disaster recovery</p></div>
+
+ </div>
+ 
+</main>
+<script>
+(function(){function t(){var d=new Date();var s=d.toISOString().slice(0,10)+" "+d.toTimeString().slice(0,8);var el=document.getElementById("navClock");if(el)el.textContent=s;}t();setInterval(t,1000);})();
+</script>
+
+</body>
+</html>

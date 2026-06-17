@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infrastructure - UAPTS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+<nav class="top-nav">
+  <!-- Left Section: Navigation and Brand -->
+  <div class="top-nav-left">
+    <div class="top-nav-brand">
+      <div class="top-nav-logo"><img src="../assets/uapts-logo.png" alt="UAPTS"/></div>
+      <div class="top-nav-text">
+        <div class="top-nav-title">UAPTS</div>
+        <div class="top-nav-subtitle">Infrastructure</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Section: Actions and Status -->
+  <div class="top-nav-actions">
+    <div class="lang-toggle"><button class="on">EN</button><button>SW</button></div>
+    
+    <!-- <button class="tenant-switcher" onclick="this.classList.toggle('open')">
+      <span class="ts-dot"></span><span>KeNHA</span><span class="ts-caret">▾</span>
+      <div class="tenant-menu">
+        <div class="tm-head">Switch Agency Tenant</div>
+        <a class="current">KeNHA <span class="tm-tag">National Roads</span></a>
+        <a>NTSA <span class="tm-tag">Safety & Licensing</span></a>
+        <a>KPA <span class="tm-tag">Ports Authority</span></a>
+        <a>KAA <span class="tm-tag">Airports</span></a>
+        <a>KCAA <span class="tm-tag">Aviation Safety</span></a>
+        <a>KRC <span class="tm-tag">Railway Ops</span></a>
+        <a>KURA <span class="tm-tag">Urban Roads</span></a>
+        <a>KeRRA <span class="tm-tag">Rural Roads</span></a>
+        <a>KRB <span class="tm-tag">Roads Board</span></a>
+        <a>NaMATA <span class="tm-tag">Mass Transit</span></a>
+        <a>LAPSSET <span class="tm-tag">Corridor</span></a>
+        <a>KMA <span class="tm-tag">Maritime Authority</span></a>
+        <a>KenTrade <span class="tm-tag">Single Window</span></a>
+        <a>NCTTCA <span class="tm-tag">Northern Corridor</span></a>
+        <a>KMD <span class="tm-tag">Meteorology</span></a>
+        <div class="tm-divider"></div>
+        <a>SDT <span class="tm-tag">Ministry Oversight</span></a>
+      </div>
+    </button> --- IGNORE --->
+
+    <div class="sec-badge" title="MFA active · Session secure"><span class="sec-dot"></span>Secure</div>
+    <div class="live-indicator">Live Data</div>
+    <div class="nav-time" id="navClock">--:--:--</div>
+    <button class="bell-btn" aria-label="Notifications">Alerts <span class="badge">3</span></button>
+    <div class="avatar" title="Jane Mwangi">JM</div>
+  </div>
+</nav>
+<aside class="sidebar" id="sidebar">
+<div class="sidebar-section">
+<a class="sidebar-link sidebar-link-top" href="../index.html">Executive Dashboard</a>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Traffic & Mobility<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="m02-traffic-map.html">Real-Time Traffic Map</a>
+<a class="sidebar-link" href="m02-traffic-analytics.html">Traffic Analytics</a>
+<a class="sidebar-link" href="m03-fleet-tracking.html">Fleet Tracking</a>
+<a class="sidebar-link" href="m03-trip-history.html">Trip History</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Safety & Infrastructure<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="m05-safety-command.html">Safety Command</a>
+<a class="sidebar-link" href="m05-safety-analytics.html">Safety Analytics</a>
+<a class="sidebar-link" href="m06-infrastructure.html">Infrastructure</a>
+<a class="sidebar-link" href="m06-project-tracking.html">Project Tracking</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Intermodal<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="m07-intermodal.html">Intermodal Hub</a>
+<a class="sidebar-link" href="m07-mode-performance.html">Mode Performance</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Analytics & Reporting<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="analytics-workbench.html">Analytics Workbench</a>
+<a class="sidebar-link" href="query-builder.html">Query Builder</a>
+<a class="sidebar-link" href="report-center.html">Report Center</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">Agency Drill-Downs<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="kenha.html">Road Assets</a>
+<a class="sidebar-link" href="ntsa.html">Safety & Enforcement</a>
+<a class="sidebar-link" href="sdr.html">Oversight & Finance</a>
+<a class="sidebar-link" href="ai-workbench.html">AI Predictive Workbench</a>
+</div></details>
+<details class="sidebar-group" open>
+<summary class="sidebar-group-title">System<span class="sidebar-caret">▾</span></summary>
+<div class="sidebar-group-items">
+<a class="sidebar-link" href="user-management.html">User Management</a>
+<a class="sidebar-link" href="audit-trail.html">Audit Trail</a>
+<a class="sidebar-link" href="integration-hub.html">Integration Hub</a>
+<a class="sidebar-link" href="notifications.html">Notifications</a>
+<a class="sidebar-link" href="settings.html">Settings</a>
+</div></details>
+</div></aside>
+
+<main class="main-content">
+
+ <div class="container">
+ <!-- Page Header -->
+ <div class="page-header">
+ <div>
+ <h1 class="page-title">Asset Condition Map</h1>
+ <p class="page-subtitle">Road asset health status and pavement quality index visualization</p>
+ </div>
+ <div style="display: flex; gap: var(--spacing-sm);">
+ <button class="btn btn-secondary" onclick="openModal('assetDetail')">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <circle cx="12" cy="12" r="10"/>
+ <line x1="12" y1="16" x2="12" y2="12"/>
+ <line x1="12" y1="8" x2="12.01" y2="8"/>
+ </svg>
+ Asset Details
+ </button>
+ <button class="btn btn-primary">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+ <polyline points="7 10 12 15 17 10"/>
+ <line x1="12" y1="15" x2="12" y2="3"/>
+ </svg>
+ Export Report
+ </button>
+ </div>
+ </div>
+
+ <!-- Stats Overview -->
+ <div class="stats-grid">
+ <div class="stat-card">
+ <div class="stat-card-icon blue">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M2 20h20"/>
+ <path d="M5 20V8l7-5 7 5v12"/>
+ </svg>
+ </div>
+ <div class="stat-card-value">1,284</div>
+ <div class="stat-card-label">Monitored Road Sections</div>
+ <div class="stat-card-trend">Total length 3,456 km</div>
+ </div>
+ <div class="stat-card">
+ <div class="stat-card-icon emerald">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+ <polyline points="22 4 12 14.01 9 11.01"/>
+ </svg>
+ </div>
+ <div class="stat-card-value">856</div>
+ <div class="stat-card-label">Good Condition</div>
+ <div class="stat-card-trend up">
+ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <polyline points="18 15 12 9 6 15"/>
+ </svg>
+ 66.7% of total
+ </div>
+ </div>
+ <div class="stat-card">
+ <div class="stat-card-icon amber">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <circle cx="12" cy="12" r="10"/>
+ <polyline points="12 6 12 12 16 14"/>
+ </svg>
+ </div>
+ <div class="stat-card-value">312</div>
+ <div class="stat-card-label">Fair Condition</div>
+ <div class="stat-card-trend">
+ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <line x1="5" y1="12" x2="19" y2="12"/>
+ </svg>
+ 24.3% of total
+ </div>
+ </div>
+ <div class="stat-card">
+ <div class="stat-card-icon red">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+ <line x1="12" y1="9" x2="12" y2="13"/>
+ <line x1="12" y1="17" x2="12.01" y2="17"/>
+ </svg>
+ </div>
+ <div class="stat-card-value">116</div>
+ <div class="stat-card-label">Poor Condition</div>
+ <div class="stat-card-trend down">
+ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <polyline points="6 9 12 15 18 9"/>
+ </svg>
+ Requires attention
+ </div>
+ </div>
+ </div>
+
+ <!-- Filter Bar -->
+ <div class="filter-bar">
+ <div class="filter-group">
+ <span class="filter-label">Road Class</span>
+ <select class="select" style="width: 140px;">
+ <option>All Classes</option>
+ <option>Highway</option>
+ <option>Arterial Road</option>
+ <option>Main Road</option>
+ <option>Secondary Road</option>
+ </select>
+ </div>
+ <div class="filter-group">
+ <span class="filter-label">Condition Grade</span>
+ <select class="select" style="width: 130px;">
+ <option>All Status</option>
+ <option>Excellent (PCI>90)</option>
+ <option>Good (PCI 80-90)</option>
+ <option>Fair (PCI 60-80)</option>
+ <option>Poor (PCI<60)</option>
+ </select>
+ </div>
+ <div class="filter-group">
+ <span class="filter-label">Area</span>
+ <select class="select" style="width: 130px;">
+ <option>All Areas</option>
+ <option>CBD</option>
+ <option>Westlands</option>
+ <option>Eastlands</option>
+ <option>Karen</option>
+ </select>
+ </div>
+ <div style="flex: 1;"></div>
+ <div class="input-group" style="margin: 0;">
+ <input type="text" class="input" placeholder="Search road name..." style="width: 200px;">
+ <button class="btn btn-secondary">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <circle cx="11" cy="11" r="8"/>
+ <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+ </svg>
+ </button>
+ </div>
+ </div>
+
+ <!-- Main Map Area -->
+ <div class="grid-2" style="margin-bottom: var(--spacing-xl);">
+ <!-- Map Area -->
+ <div class="map-container" style="height: 500px;">
+ <div class="map-grid"></div>
+
+ <!-- Simulated condition map -->
+ <svg style="position: absolute; inset: 0; width: 100%; height: 100%;" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice">
+ <!-- Roads - color indicates condition -->
+ <!-- Good condition - green -->
+ <path d="M50,225 Q200,225 400,200 T750,225" stroke="#22c55e" stroke-width="12" fill="none" opacity="0.8"/>
+ <path d="M150,80 Q400,50 650,80" stroke="#22c55e" stroke-width="10" fill="none" opacity="0.8"/>
+
+ <!-- Fair condition - yellow -->
+ <path d="M650,80 Q700,225 650,370" stroke="#eab308" stroke-width="10" fill="none" opacity="0.8"/>
+ <path d="M400,200 L400,80" stroke="#eab308" stroke-width="8" fill="none" opacity="0.8"/>
+
+ <!-- Poor condition - red -->
+ <path d="M200,200 L200,350" stroke="#dc2626" stroke-width="8" fill="none" opacity="0.8"/>
+ <path d="M500,250 L600,250" stroke="#dc2626" stroke-width="8" fill="none" opacity="0.8"/>
+ <path d="M600,180 L600,350" stroke="#dc2626" stroke-width="8" fill="none" opacity="0.8"/>
+
+ <!-- Other roads -->
+ <path d="M300,150 L300,80" stroke="#22c55e" stroke-width="6" fill="none" opacity="0.8"/>
+ <path d="M400,350 L550,350" stroke="#eab308" stroke-width="6" fill="none" opacity="0.8"/>
+ <path d="M150,370 Q400,400 150,370" stroke="#22c55e" stroke-width="8" fill="none" opacity="0.8"/>
+
+ <!-- Markers -->
+ <g transform="translate(280, 180)">
+ <circle r="6" fill="#dc2626"/>
+ <text y="20" text-anchor="middle" fill="white" font-size="7">IRI: 8.5</text>
+ </g>
+ <g transform="translate(550, 250)">
+ <circle r="6" fill="#dc2626"/>
+ <text y="20" text-anchor="middle" fill="white" font-size="7">PCI: 45</text>
+ </g>
+ </svg>
+
+ <!-- Map Controls -->
+ <div class="map-controls">
+ <button class="map-control-btn">
+ <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <circle cx="11" cy="11" r="8"/>
+ <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+ <line x1="11" y1="8" x2="11" y2="14"/>
+ <line x1="8" y1="11" x2="14" y2="11"/>
+ </svg>
+ </button>
+ <button class="map-control-btn">
+ <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <circle cx="11" cy="11" r="8"/>
+ <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+ <line x1="8" y1="11" x2="14" y2="11"/>
+ </svg>
+ </button>
+ <button class="map-control-btn">
+ <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+ <circle cx="12" cy="10" r="3"/>
+ </svg>
+ </button>
+ </div>
+
+ <!-- Legend -->
+ <div class="map-legend">
+ <div class="legend-title">Condition Grade</div>
+ <div class="legend-items">
+ <div class="legend-item">
+ <div class="legend-color" style="background: var(--traffic-green);"></div>
+ <span>Excellent (PCI>90)</span>
+ </div>
+ <div class="legend-item">
+ <div class="legend-color" style="background: var(--traffic-green); opacity: 0.7;"></div>
+ <span>Good (PCI 80-90)</span>
+ </div>
+ <div class="legend-item">
+ <div class="legend-color" style="background: var(--traffic-yellow);"></div>
+ <span>Fair (PCI 60-80)</span>
+ </div>
+ <div class="legend-item">
+ <div class="legend-color" style="background: var(--traffic-red);"></div>
+ <span>Poor (PCI<60)</span>
+ </div>
+ </div>
+ <div class="legend-title" style="margin-top: var(--spacing-md);">Index Explanation</div>
+ <div class="legend-items">
+ <div class="legend-item">
+ <span>IRI: International Roughness Index</span>
+ </div>
+ <div class="legend-item">
+ <span>PCI: Pavement Condition Index</span>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- Priority Sections -->
+ <div class="card">
+ <div class="card-header">
+ <div>
+ <div class="card-title">Priority Sections</div>
+ <div class="card-subtitle">Roads requiring priority maintenance</div>
+ </div>
+ <span class="badge badge-red">116 sections</span>
+ </div>
+ <div class="card-body" style="padding: 0; max-height: 440px; overflow-y: auto;">
+ <div style="padding: var(--spacing-md); background: rgba(239, 68, 68, 0.1); border-left: 3px solid var(--danger);">
+ <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+ <span class="badge badge-red">Urgent</span>
+ <span style="font-size: 0.625rem; color: var(--text-muted);">PCI: 32</span>
+ </div>
+ <div style="font-size: 0.875rem; font-weight: 600; margin-bottom: 4px;">Ngong Road (Karen Section)</div>
+ <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);">IRI: 8.5 m/km | Length: 2.3 km</div>
+ <div style="display: flex; gap: var(--spacing-sm);">
+ <button class="btn btn-sm btn-primary">Schedule Maintenance</button>
+ <button class="btn btn-sm btn-secondary" onclick="openModal('assetDetail')">Details</button>
+ </div>
+ </div>
+
+ <div style="padding: var(--spacing-md); border-left: 3px solid var(--danger);">
+ <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+ <span class="badge badge-red">Urgent</span>
+ <span style="font-size: 0.625rem; color: var(--text-muted);">PCI: 38</span>
+ </div>
+ <div style="font-size: 0.875rem; font-weight: 600; margin-bottom: 4px;">Waiyaki Way km 42-45</div>
+ <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);">IRI: 7.8 m/km | Length: 3.0 km</div>
+ <div style="display: flex; gap: var(--spacing-sm);">
+ <button class="btn btn-sm btn-primary">Schedule Maintenance</button>
+ <button class="btn btn-sm btn-secondary">Details</button>
+ </div>
+ </div>
+
+ <div style="padding: var(--spacing-md); border-left: 3px solid var(--warning);">
+ <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+ <span class="badge badge-amber">Severe</span>
+ <span style="font-size: 0.625rem; color: var(--text-muted);">PCI: 48</span>
+ </div>
+ <div style="font-size: 0.875rem; font-weight: 600; margin-bottom: 4px;">Kenyatta Avenue (Hospital Section)</div>
+ <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);">IRI: 6.2 m/km | Length: 1.5 km</div>
+ <div style="display: flex; gap: var(--spacing-sm);">
+ <button class="btn btn-sm btn-secondary">Schedule Maintenance</button>
+ <button class="btn btn-sm btn-ghost">Details</button>
+ </div>
+ </div>
+
+ <div style="padding: var(--spacing-md); border-left: 3px solid var(--warning);">
+ <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+ <span class="badge badge-amber">Severe</span>
+ <span style="font-size: 0.625rem; color: var(--text-muted);">PCI: 52</span>
+ </div>
+ <div style="font-size: 0.875rem; font-weight: 600; margin-bottom: 4px;">Mombasa Road A109 km 72-78</div>
+ <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);">IRI: 5.8 m/km | Length: 6.0 km</div>
+ <div style="display: flex; gap: var(--spacing-sm);">
+ <button class="btn btn-sm btn-secondary">Schedule Maintenance</button>
+ <button class="btn btn-sm btn-ghost">Details</button>
+ </div>
+ </div>
+
+ <div style="padding: var(--spacing-md); border-left: 3px solid var(--warning);">
+ <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+ <span class="badge badge-amber">Severe</span>
+ <span style="font-size: 0.625rem; color: var(--text-muted);">PCI: 56</span>
+ </div>
+ <div style="font-size: 0.875rem; font-weight: 600; margin-bottom: 4px;">Enterprise Road (Industrial Area)</div>
+ <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);">IRI: 5.2 m/km | Length: 4.2 km</div>
+ <div style="display: flex; gap: var(--spacing-sm);">
+ <button class="btn btn-sm btn-secondary">Schedule Maintenance</button>
+ <button class="btn btn-sm btn-ghost">Details</button>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- Condition Distribution -->
+ <div class="card">
+ <div class="card-header">
+ <div>
+ <div class="card-title">Condition Distribution Statistics</div>
+ <div class="card-subtitle">Condition grade distribution by administrative area</div>
+ </div>
+ </div>
+ <div class="card-body">
+ <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--spacing-lg);">
+ <div>
+ <div style="text-align: center; margin-bottom: var(--spacing-md);">
+ <span style="font-size: 0.75rem; color: var(--text-muted);">CBD</span>
+ </div>
+ <div style="display: flex; flex-direction: column; gap: 4px;">
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-green); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Good</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">72%</div>
+ </div>
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-yellow); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Fair</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">20%</div>
+ </div>
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-red); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Poor</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">8%</div>
+ </div>
+ </div>
+ </div>
+
+ <div>
+ <div style="text-align: center; margin-bottom: var(--spacing-md);">
+ <span style="font-size: 0.75rem; color: var(--text-muted);">Westlands</span>
+ </div>
+ <div style="display: flex; flex-direction: column; gap: 4px;">
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-green); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Good</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">65%</div>
+ </div>
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-yellow); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Fair</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">25%</div>
+ </div>
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-red); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Poor</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">10%</div>
+ </div>
+ </div>
+ </div>
+
+ <div>
+ <div style="text-align: center; margin-bottom: var(--spacing-md);">
+ <span style="font-size: 0.75rem; color: var(--text-muted);">Karen</span>
+ </div>
+ <div style="display: flex; flex-direction: column; gap: 4px;">
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-green); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Good</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">68%</div>
+ </div>
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-yellow); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Fair</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">22%</div>
+ </div>
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-red); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Poor</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">10%</div>
+ </div>
+ </div>
+ </div>
+
+ <div>
+ <div style="text-align: center; margin-bottom: var(--spacing-md);">
+ <span style="font-size: 0.75rem; color: var(--text-muted);">Eastlands</span>
+ </div>
+ <div style="display: flex; flex-direction: column; gap: 4px;">
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-green); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Good</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">62%</div>
+ </div>
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-yellow); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Fair</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">28%</div>
+ </div>
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-red); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Poor</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">10%</div>
+ </div>
+ </div>
+ </div>
+
+ <div>
+ <div style="text-align: center; margin-bottom: var(--spacing-md);">
+ <span style="font-size: 0.75rem; color: var(--text-muted);">Ruiru</span>
+ </div>
+ <div style="display: flex; flex-direction: column; gap: 4px;">
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-green); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Good</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">70%</div>
+ </div>
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-yellow); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Fair</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">22%</div>
+ </div>
+ <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+ <div style="width: 8px; height: 8px; background: var(--traffic-red); border-radius: 2px;"></div>
+ <div style="flex: 1; font-size: 0.75rem;">Poor</div>
+ <div style="font-size: 0.75rem; font-family: var(--font-mono);">8%</div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+</main>
+<script>
+(function(){function t(){var d=new Date();var s=d.toISOString().slice(0,10)+" "+d.toTimeString().slice(0,8);var el=document.getElementById("navClock");if(el)el.textContent=s;}t();setInterval(t,1000);})();
+</script>
+
+</body>
+</html>
